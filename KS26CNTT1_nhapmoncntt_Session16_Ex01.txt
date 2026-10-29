@@ -1,0 +1,54 @@
+ BÀI 1: HỆ THỐNG QUẢN LÝ TÀI LIỆU DỰ ÁN DOANH NGHIỆP
+
+ 1. Báo cáo phân tích
+
+  Quy trình Hybrid Workflow
+
+Nhóm sử dụng ổ cứng Local SSD để lưu và chỉnh sửa file thiết kế 3D, kết hợp Google Drive để tự động đồng bộ dữ liệu lên Cloud. Khi bạn A nhấn Ctrl + S, file được lưu trên máy tính. Phần mềm đồng bộ sẽ tự động tải file lên Cloud khi có kết nối Internet.
+
+            Sơ đồ luồng dữ liệu
+
+Designer chỉnh sửa file 3D
+↓
+Local SSD – Nhấn Ctrl + S để lưu file
+↓
+Phần mềm đồng bộ Google Drive
+↓
+- Có Internet: Tải file lên Cloud.
+- Mất kết nối: Giữ file Local và chờ kết nối lại để đồng bộ.
+↓
+Cloud lưu file và lịch sử phiên bản (Version History).
+
+         Xử lý khi mất mạng hoặc sập nguồn
+
+- Mất Internet: File vẫn được lưu trên máy tính. Phần mềm đồng bộ sẽ tiếp tục tải file lên khi có mạng trở lại.
+- Sập nguồn: Nếu file chưa kịp đồng bộ, bản mới nhất có thể chưa được lưu trên Cloud. Khi mở máy lại, cần kiểm tra file và trạng thái đồng bộ.
+- Phòng tránh mất dữ liệu: Kiểm tra trạng thái đồng bộ hoàn tất trước khi tắt máy và sao lưu thêm các file quan trọng ra ổ cứng ngoài.
+
+        Xử lý xung đột phiên bản (File Version Conflict)
+
+Khi hai thành viên cùng chỉnh sửa một file, hệ thống có thể tạo bản xung đột hoặc yêu cầu chọn phiên bản cần giữ
+
+Cách xử lý:
+
+1. Kiểm tra các bản file và thời gian chỉnh sửa
+2. Chọn bản đúng hoặc kết hợp nội dung từ hai bản nếu cần
+3. Lưu bản hoàn chỉnh và kiểm tra trạng thái đồng bộ
+
+Nếu file bị lỗi, mở Version History trên Google Drive, chọn phiên bản ổn định trước khi xảy ra lỗi và khôi phục. Sau đó kiểm tra lại file 3D trước khi sử dụng
+
+ 2. Quy trình thiết lập phần mềm đồng bộ
+
+ Bước 1: Cài đặt phần mềm
+
+Cài Google Drive for desktop trên máy tính và đăng nhập tài khoản dự án
+
+ Bước 2: Thiết lập thư mục đồng bộ
+
+Tạo thư mục DuAn_SoHoa_BaoTang_PTIT trong vùng đồng bộ. Lưu toàn bộ file thiết kế vào thư mục này để phần mềm tự động tải các thay đổi lên Cloud.
+
+ Bước 3: Kiểm tra đồng bộ và khôi phục
+
+Tạo file thử nghiệm, nhấn Ctrl + S và chờ đồng bộ hoàn tất. Sau đó chỉnh sửa file, mở Version History và kiểm tra khả năng khôi phục phiên bản trước
+
+ 
